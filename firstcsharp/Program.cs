@@ -1,45 +1,27 @@
 ﻿public class Program
 {
-    //Datatypes
-    //Integer,  int
-    //string
-    //Boolean, bool
-    //float
-    //double
-    //char
-    //decimal
+    //Array it allows storing of multiple values in a variable
 
+    int v = 56; //single value
+    static int[] y = { 675, 6754, 90, 869, 674, 74, 867, 8, 1, 32, 4, 4, 5 }; //Array
 
-    //interger int
-    //int y; // declaration 
-    //y = 345; // initialize
-
-    static int numbers = 5756;
-    static int x = 56;//declaration + initialization
-    static int y = numbers + x;
-
-    //string
-    string word = "Shelf";
-   static string value = "Joe";
-   static bool IsActive = true;
-
-    //floats
-    float value2 = 24.35f;
-    //double
-    double value3 = 67946000473;
-    //decimal
-    decimal value4 = 363256.52m;
-
-
+    static string[] words = { "chalk", "biro", "house", "bin", "pencil", "board" };
 
     
     private static void Main(string[] args)
     {
         Console.WriteLine("Hello, World!");
         Console.WriteLine("Welcome to c# class");
-        Console.WriteLine("your height is" + y + "cm");
-        Console.WriteLine("your Name is " + value);
-        Console.WriteLine("Are you active for your coding" + IsActive);
+
+        foreach( int i in y)
+        {
+            Console.WriteLine(i);
+        }
+
+        foreach(string data in words)
+        {
+            Console.WriteLine(data);
+        }
 
     }
 
