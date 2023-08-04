@@ -1,63 +1,27 @@
 ﻿
 public class Program
 {
-
-    //operators
-
-    //arithmetic operators +,-,*,/,%
-    //logical operators &&,||,!,&,|
-    //assignment operators =,+=,-=,*=,/=, <<
-    //relations operators > greater than,< lessser than,==,!=,>=,<=
-
-
-    // arithmetic operator
-
-    static decimal v = 90; //field
-    static decimal x = 90;
-    static decimal r = x += v;
-    static decimal n = x -= v;
-    static decimal o = x /= v;
-    static decimal a = x *= v;
-
-    int two = 10;
-    int one = 16;
-   
-   
-
-    static string words = "Bookshop";
-    static string values = "calculator";
-    static string result = "Bookshop";
-
-   
-
- 
+   static  int v = 90;
+    static int i = 1;
 
     private static void Main(string[] args)
     {
-        Console.WriteLine(r);
-        Console.WriteLine(n);
-        Console.WriteLine(o);
-        Console.WriteLine(a);
-        Console.WriteLine("******************");
+        Add();
+        Subtract(90, 5);
+    }
 
-        if(v >= x )
-        {
-            Console.WriteLine(" yes they match");
-        }
-        else
-        {
-            Console.WriteLine("they dont match");
-        }
-        if(v <= x)
-        {
-            Console.WriteLine("they are correct");
-        }
-        else
-        {
-            Console.WriteLine("they are not correct");
-        }
+    public static void Add ()
+    {
+        int x = v + i;
+        
+        Console.WriteLine(x);
+    }
 
-
+    public static int Subtract(int value1, int value2)
+    {
+       int result = value1 - value2;
+        Console.WriteLine( result);
+        return result;
     }
 
 
