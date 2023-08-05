@@ -1,30 +1,80 @@
 ﻿
 public class Program
 {
-   static  int v = 90;
-    static int i = 1;
+    //conditional branching ====> if else, switchcase
+    //conditional looping =====> foreach, do, for, dowhile
+    static int chat;
+   static decimal v = 45.7m;
+    static int h = 78;
+
 
     private static void Main(string[] args)
     {
-        Add();
-        Subtract(90, 5);
+        //if else
+        Branching1();
+        Branching2();
+
+        int c;
+        c = 13;
+        h += c;
+
+
+        //int c = Convert.ToInt32(v);
+        //Console.WriteLine(c);
+        //switch case
+
     }
 
-    public static void Add ()
+    public static void Branching1()
     {
-        int x = v + i;
-        
-        Console.WriteLine(x);
-    }
+        string words = "Ade";
 
-    public static int Subtract(int value1, int value2)
+        if (words != "lame")
+        {
+            Console.WriteLine("correct");
+        }
+        else if (words == "Ad")
+        {
+            Console.WriteLine("matched");
+        }
+        else
+        {
+            Console.WriteLine("not correct");
+        }
+
+    }
+    public static void Branching2()
     {
-       int result = value1 - value2;
-        Console.WriteLine( result);
-        return result;
+        Console.WriteLine("choose any car by inputing any number from 1-5");
+        chat = int.Parse(Console.ReadLine());
+
+        switch (chat)
+        {
+
+            case 1:
+                Console.WriteLine("congrat you won Toyota Camry");
+                break;
+            case 2:
+                Console.WriteLine("congrat you won Lexus 330");
+                break;
+            case 3:
+                Console.WriteLine("congrat you won Honda");
+                break;
+            case 4:
+                Console.WriteLine("congrat you won Benz");
+                break;
+            case 5:
+                Console.WriteLine("congrat you won Mercedes");
+                break;
+            default:
+                Console.WriteLine("oops you enter the wrong value");
+                break;
+        }
     }
 
-   
+
+
+
 
 
 }
