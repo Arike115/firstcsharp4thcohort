@@ -2,75 +2,47 @@
 public class Program
 {
     //conditional branching ====> if else, switchcase
-    //conditional looping =====> foreach, do, for, dowhile
-    static int chat;
-   static decimal v = 45.7m;
-    static int h = 78;
-
+    //conditional looping =====> foreach, while, for, dowhile
+   
 
     private static void Main(string[] args)
     {
-        //if else
-        Branching1();
-        Branching2();
+        //Foreach
+        int[] numbers = { 67, 78, 80, 0, 83, 86, 1, 2, 3, 4, 5, 6, 7, 8, 9,10 };
+        string words = "Photosynthesis";
+        foreach(int i in numbers)
+        {
+            Console.WriteLine(i);
+        }
 
-        int c;
-        c = 13;
-        h += c;
+        Console.WriteLine("*********************");
+        //for
 
+        for (int j= 0; j <= numbers.Length; j++)
+        {
+            Console.WriteLine(j);
+        }
+        Console.WriteLine("************");
+        //while
+        int x = 0;
+        while(x <= words.Length)
+        {
+            Console.WriteLine(x);
+            x++;
+        }
 
-        //int c = Convert.ToInt32(v);
-        //Console.WriteLine(c);
-        //switch case
-
+        Console.WriteLine("**************");
+        int v = 0;
+        do
+        {
+            Console.WriteLine(x);
+            x++;
+        }
+        while(x <= words.Length);
+        
     }
 
-    public static void Branching1()
-    {
-        string words = "Ade";
-
-        if (words != "lame")
-        {
-            Console.WriteLine("correct");
-        }
-        else if (words == "Ad")
-        {
-            Console.WriteLine("matched");
-        }
-        else
-        {
-            Console.WriteLine("not correct");
-        }
-
-    }
-    public static void Branching2()
-    {
-        Console.WriteLine("choose any car by inputing any number from 1-5");
-        chat = int.Parse(Console.ReadLine());
-
-        switch (chat)
-        {
-
-            case 1:
-                Console.WriteLine("congrat you won Toyota Camry");
-                break;
-            case 2:
-                Console.WriteLine("congrat you won Lexus 330");
-                break;
-            case 3:
-                Console.WriteLine("congrat you won Honda");
-                break;
-            case 4:
-                Console.WriteLine("congrat you won Benz");
-                break;
-            case 5:
-                Console.WriteLine("congrat you won Mercedes");
-                break;
-            default:
-                Console.WriteLine("oops you enter the wrong value");
-                break;
-        }
-    }
+   
 
 
 
