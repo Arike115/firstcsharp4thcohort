@@ -6,6 +6,20 @@ using System.Threading.Tasks;
 
 namespace firstcsharp.Topics
 {
+    public enum JobTypes
+    { 
+        Banker,
+        Doctors,
+        Lawyer,
+        Engineers
+    }
+
+    public struct Types
+    { 
+
+    }
+
+
     public struct Car 
     {
         private int _carid; 
