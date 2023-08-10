@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace firstcsharp
 {
-
-    public class Maths
+    public interface IRecharge
     {
-       
+        void Recharge();
+        int v { get; set; }
     }
 }
