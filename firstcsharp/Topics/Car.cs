@@ -6,31 +6,38 @@ using System.Threading.Tasks;
 
 namespace firstcsharp.Topics
 {
-    public class Car 
+    public struct Car 
     {
-        public static string[] words = {"Benz","Camry","Ford","Bugatti"};
-        public string word;
-        public int Numbers;
+        private int _carid; 
+        private string _name;
+        private Gender _gender;
 
-        public Car( string word, int numbers) //Constructor
+        public int Carid 
+        {
+            get => _carid; 
+            set => _carid = value; 
+        }
+        public string Name 
         { 
-            this.word = word;
-            this.Numbers = numbers;
+            get => _name; 
+            set => _name = value;
+        }
+        public Gender Gender 
+        { 
+          get => _gender; 
+          set => _gender = value; 
         }
 
-            
-
-        public static void CarName()
-        {
-            foreach (var word in words)
-            {
-                Console.WriteLine(word);
-            }
+        public Car(int id , string name, Gender gender) 
+        { 
+            _carid = id;
+            _name = name;
+            _gender = gender;
         }
 
-        public void Recharge() //non-static method or instance method 
+        public void PrintDetails()
         {
-            Console.WriteLine("my name is {0}, i am {1} years old", word, Numbers);
+            Console.WriteLine("Car Id is ----- {0} and name is --- {1} the gender is {2} ", _carid, _name,_gender);
         }
     }
 
