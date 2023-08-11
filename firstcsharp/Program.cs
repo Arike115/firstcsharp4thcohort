@@ -3,7 +3,7 @@
 
 public class Program
 {
-
+    //lambda expression =>
     private static void Main(string[] args) //method or behaviour or logic or function
     {
        List<Car> carmodel = new List<Car>();
@@ -14,37 +14,16 @@ public class Program
         carmodel.Add(new Car() { Id = 105, Name = "Bugatti", Model = 2022, Price = 5000000 });
         carmodel.Add(new Car() { Id = 106, Name = "Lexus", Model = 2012, Price = 2300000 });
 
-        outdateddelgate outdated = new outdateddelgate(Carfiltering);
-        Car.OldCars(carmodel,outdated);
-        Console.WriteLine( "-----------");
-        outdateddelgate outdateds = new outdateddelgate(Carfilter);
-        Car.OldCars(carmodel, outdateds);
-
+        var result = carmodel.Select(x => new {model = x.Model, name = x.Name, carid = x.Id}).ToList();
+        foreach(var item in result)
+        {
+            Console.WriteLine(item.name);
+        }
+        var s = carmodel.Sum(x => x.Price);
+        Console.WriteLine(s);
         Console.ReadKey();
     }
 
-    public static bool Carfiltering(Car car)
-    {
-        if(car.Price < 2300000)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-    public static bool Carfilter(Car car)
-    {
-        if (car.Id < 104)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
+   
 
 }

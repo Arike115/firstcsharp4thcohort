@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace firstcsharp.Topics
 {
-    public delegate bool outdateddelgate(Car car);
     public class Car
     {
        //Delegate 
@@ -17,18 +16,6 @@ namespace firstcsharp.Topics
         public int Price { get; set; }
         public int Model { get; set; }
 
-
-        public static void OldCars(List<Car> cars, outdateddelgate outdated)
-        {
-            foreach (Car car in cars)
-            {
-                if(outdated(car))
-                {
-                    Console.WriteLine(car.Name +"-------" +"Outdated");
-                }
-            }
-        }
-        
     }
 
    
