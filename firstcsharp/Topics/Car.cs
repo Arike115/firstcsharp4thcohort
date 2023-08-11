@@ -6,18 +6,27 @@ using System.Threading.Tasks;
 
 namespace firstcsharp.Topics
 {
-    public class Car<T>
+    public delegate bool outdateddelgate(Car car);
+    public class Car
     {
-        //Generics
+       //Delegate 
+       //is a type safe function pointer
 
-        public static bool Equalvalue(T v1, T v2)
-        {
-            return v1.Equals(v2);
-        }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Price { get; set; }
+        public int Model { get; set; }
 
-        public static int Add(T v2)
+
+        public static void OldCars(List<Car> cars, outdateddelgate outdated)
         {
-            return 0;
+            foreach (Car car in cars)
+            {
+                if(outdated(car))
+                {
+                    Console.WriteLine(car.Name +"-------" +"Outdated");
+                }
+            }
         }
         
     }
