@@ -6,53 +6,15 @@ using System.Threading.Tasks;
 
 namespace firstcsharp.Topics
 {
-    public enum JobTypes
-    { 
-        Banker,
-        Doctors,
-        Lawyer,
-        Engineers
-    }
-
-    public struct Types
-    { 
-
-    }
-
-
-    public struct Car 
+    public class Car 
     {
-        private int _carid; 
-        private string _name;
-        private Gender _gender;
+        //Generics
 
-        public int Carid 
+        public static bool Equalvalue<T>(T v1, T v2)
         {
-            get => _carid; 
-            set => _carid = value; 
+            return v1.Equals(v2);
         }
-        public string Name 
-        { 
-            get => _name; 
-            set => _name = value;
-        }
-        public Gender Gender 
-        { 
-          get => _gender; 
-          set => _gender = value; 
-        }
-
-        public Car(int id , string name, Gender gender) 
-        { 
-            _carid = id;
-            _name = name;
-            _gender = gender;
-        }
-
-        public void PrintDetails()
-        {
-            Console.WriteLine("Car Id is ----- {0} and name is --- {1} the gender is {2} ", _carid, _name,_gender);
-        }
+        
     }
 
    
