@@ -1,27 +1,60 @@
 ﻿using firstcsharp.Topics;
 
-
+public delegate void Print(int value);
 public class Program
 {
-    //lambda expression =>
+    //Anonymous method
+    //anonymous type
+    //Nullable types
+    //preprocessor directives
+    //xml documentation
+    //iteration
+    //Attributes
     private static void Main(string[] args) //method or behaviour or logic or function
     {
-       List<Car> carmodel = new List<Car>();
-        carmodel.Add(new Car() { Id = 101, Name="Benz", Model=2017, Price = 2000000 });
-        carmodel.Add(new Car() { Id = 102, Name = "Camry", Model = 2018, Price = 1000000 });
-        carmodel.Add(new Car() { Id = 103, Name = "Peguot", Model = 2013, Price = 6700000 });
-        carmodel.Add(new Car() { Id = 104, Name = "Toyota", Model = 2014, Price = 3000000 });
-        carmodel.Add(new Car() { Id = 105, Name = "Bugatti", Model = 2022, Price = 5000000 });
-        carmodel.Add(new Car() { Id = 106, Name = "Lexus", Model = 2012, Price = 2300000 });
+        //Anonymous method
+        int i = 10;
 
-        var result = carmodel.Select(x => new {model = x.Model, name = x.Name, carid = x.Id}).ToList();
-        foreach(var item in result)
+        Print print = delegate (int value)
         {
-            Console.WriteLine(item.name);
+            value += i;
+            Console.WriteLine("Anonymous value is: {0}", value);
+        };
+
+        print(100);
+
+
+        //Anonymouse Type
+        var student = new { Id = 1, FirstName = "James", LastName = "Bond" };
+        Console.WriteLine(student.Id); //output: 1
+        Console.WriteLine(student.FirstName); //output: James
+        Console.WriteLine(student.LastName); // output: Bond
+
+        //Nullable Type
+        int? result = null;
+        bool? check = null;
+        decimal? resultDecimal = null;
+
+        //Iteration
+        //External iteration
+        List<string> resultList = new List<string> {"result","india", "nigeria", "Denmark" };
+        for(int y = 0; y < resultList.Count; y++)
+        {
+            Console.WriteLine(y);
         }
-        var s = carmodel.Sum(x => x.Price);
-        Console.WriteLine(s);
-        Console.ReadKey();
+        foreach(var resultS in resultList)
+        {
+            Console.WriteLine(resultS);
+        }
+        Console.WriteLine("internal -----------");
+        //internal iteration
+        resultList.ForEach(x => Console.WriteLine(x));
+       
+    }
+
+    public static void Calculate()
+    {
+        
     }
 
    
