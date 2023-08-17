@@ -31,7 +31,7 @@ public class Program
 
         foreach(KeyValuePair<int, Car> pair in cardictionary)
         {
-            //Console.WriteLine("key" + pair.Key);
+            Console.WriteLine("key" + pair.Key);
             var car = pair.Value;
             Console.WriteLine("Id = {0}, Name = {1}, Price = {2}, Model = {3}", car.Id, car.Name, car.Price, car.Model);
         }
