@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace firstcsharp.Topics
 {
-    public delegate bool outdateddelgate(Car car);
     public class Car
     {
        //Delegate 
