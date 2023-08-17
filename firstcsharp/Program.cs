@@ -20,23 +20,94 @@ public class Program
         Car car5 = new Car() { Id = 205, Name = "Bugatti", Price = 500000, Model = 2025 };
         Car car6 = new Car() { Id = 206, Name = "Ferarri", Price = 450000, Model = 2030};
 
-        Dictionary<int, Car> cardictionary = new Dictionary<int, Car>();
-        cardictionary.Add(car1.Id, car1);
-        cardictionary.Add(car2.Id, car2);
-        cardictionary.Add(car3.Id, car3);
-        cardictionary.Add(car4.Id, car4);
-        cardictionary.Add(car5.Id, car5);
-        cardictionary.Add(car6.Id, car6);
-       
+       //stack
+       //lastinfirstout
 
-        foreach(KeyValuePair<int, Car> pair in cardictionary)
+        Stack<Car> stackcar = new Stack<Car>();
+        stackcar.Push(car1);
+        stackcar.Push(car2);
+        stackcar.Push(car3);
+        stackcar.Push(car4);
+        stackcar.Push(car5);
+        stackcar.Push(car6);
+
+        var c1 = stackcar.Pop();
+        Console.WriteLine(c1.Id + "  "+c1.Name);
+        Console.WriteLine("item left in the stack" + stackcar.Count);
+
+        var c2 = stackcar.Pop();
+        Console.WriteLine(c2.Id + "  " + c2.Name);
+        Console.WriteLine("item left in the stack" + stackcar.Count);
+
+        var c3 = stackcar.Pop();
+        Console.WriteLine(c3.Id + "  " + c3.Name);
+        Console.WriteLine("item left in the stack" + stackcar.Count);
+
+        var c4 = stackcar.Pop();
+        Console.WriteLine(c4.Id + "  " + c4.Name);
+        Console.WriteLine("item left in the stack" + stackcar.Count);
+
+        var c5 = stackcar.Pop();
+        Console.WriteLine(c5.Id + "  " + c5.Name);
+        Console.WriteLine("item left in the stack" + stackcar.Count);
+
+        var c6 = stackcar.Pop();
+        Console.WriteLine(c6.Id + "  " + c6.Name);
+        Console.WriteLine("item left in the stack" + stackcar.Count);
+
+
+
+        //queue
+        //firstin first out
+        Queue<Car> queuecar = new Queue<Car>();
+        queuecar.Enqueue(car1);
+        queuecar.Enqueue(car2);
+        queuecar.Enqueue(car3);
+        queuecar.Enqueue(car4);
+        queuecar.Enqueue(car5);
+        queuecar.Enqueue(car6);
+
+        Console.WriteLine("*******************");
+
+        var q1 = queuecar.Dequeue();
+        Console.WriteLine(q1.Id + "  " + q1.Name);
+        Console.WriteLine("item left in the queue" + queuecar.Count);
+
+        var q2 = queuecar.Dequeue();
+        Console.WriteLine(q2.Id + "  " + q2.Name);
+        Console.WriteLine("item left in the queue" + queuecar.Count);
+
+        var q3 = queuecar.Dequeue();
+        Console.WriteLine(q3.Id + "  " + q3.Name);
+        Console.WriteLine("item left in the queue" + queuecar.Count);
+
+        var q4 = queuecar.Dequeue();
+        Console.WriteLine(q4.Id + "  " + q4.Name);
+        Console.WriteLine("item left in the queue" + queuecar.Count);
+
+        var q5 = queuecar.Dequeue();
+        Console.WriteLine(q5.Id + "  " + q5.Name);
+        Console.WriteLine("item left in the queue" + queuecar.Count);
+
+        var q6 = queuecar.Dequeue();
+        Console.WriteLine(q6.Id + "  " + q6.Name);
+        Console.WriteLine("item left in the queue" + queuecar.Count);
+
+
+        string[] result = { "lots", "data", "time", "date", "later" };
+
+        Queue<string> queue = new Queue<string>();
+        queue.Enqueue("lots");
+        queue.Enqueue("date");
+        queue.Enqueue("time");
+        queue.Enqueue("later");
+        queue.Enqueue("item");
+        queue.Enqueue("result");
+
+        foreach( var item in queue)
         {
-            Console.WriteLine("key" + pair.Key);
-            var car = pair.Value;
-            Console.WriteLine("Id = {0}, Name = {1}, Price = {2}, Model = {3}", car.Id, car.Name, car.Price, car.Model);
+            Console.WriteLine(item);
         }
-
-
     }
 
    
