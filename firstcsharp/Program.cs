@@ -1,68 +1,94 @@
 ﻿using firstcsharp.Topics;
 using System.Collections;
+using System.Net.WebSockets;
+using System.Security.Cryptography;
 
 public class Program
 {
-    //linq language integrated query
-    //query syntax or query expression
-    //method syntax or method extension syntax or fluent syntax
-    //filtering ====> where and offtype
-    //projection ====> select anf select many
+    //Joining
+    //Grouping
+    //Ordering
+    //Set Operation
 
+    //Join
+    //=> inner join ---- outer join
+    //=> left join ------ left outer join
+    //=> right join ----- right outer join
+    //=> full join
+
+
+    //Ordering 
     private static void Main(string[] args) //method or behaviour or logic or function
     {
-        IList<Student> students = new List<Student>()
-        {
-            new Student() {Id = 1, Name = "John", Age = 15},
-            new Student() {Id = 1, Name = "Austin", Age = 18 },
-            new Student() {Id = 1, Name = "Victor", Age = 19},
-            new Student() {Id = 1, Name = "Ben", Age = 23},
-            new Student() {Id = 1, Name = "Ruth", Age = 7},
-        };
 
-        //query
-        var tenager = from s in students
-                      where s.Age > 7 
-                      select s;
-        //method syntax
-        var tenag = students.Where(s => s.Age > 7);
+        //Ordering
+        //orderby
+        //orderbydescending
+        //thenby
+        ////ThenByDescending
+        //var emp = Employee.GetAllEmployees()
+        //           .OrderByDescending(x => x.ID)
+        //           .ThenByDescending(x => x.Name)
+        //           .ToList();
 
-        foreach (var student in tenag.ToList())
+        //foreach(var data in emp)
+        //{
+        //    Console.WriteLine("Name:---" + data.Name + ": Id:-----" + data.ID);
+        //}
+
+        //Grouping
+
+        ////GroupBy
+        ////query syntax
+        //var info = (from std in Employee.GetAllEmployees()
+        //            group std by std.DepartmentId);
+
+        ////method syntax
+        //var info2 = Employee.GetAllEmployees().GroupBy(x => x.DepartmentId);
+
+        //foreach (var data in info)
+        //{
+        //    Console.WriteLine(data.Key + ":" + data.Count());
+        //    foreach (var data2 in data)
+        //    {
+        //        Console.WriteLine("Name :" + data2.Name);
+        //    }
+        //}
+        //Console.ReadKey();
+
+        //set operator
+        //Distinct
+        //Except
+        //intersect
+        //union
+
+        var datsource1 = new List<int> { 1, 2, 4, 5, 7, 8, 9, 9, 10, 10 };
+        var datsource2 = new List<int> { 11, 45, 77, 10, 9, 12, 34, 0 };
+
+
+        ////Distinct
+        ////method syntax
+        //var result = datsource1.Distinct().ToList();
+
+        ////query syntax 
+        //var result2 = (from num in datsource1 select num).Distinct();
+
+        ////Except
+        ////method syntax
+        //var result = datsource2.Except(datsource1).ToList();
+
+        ////Intersect
+        ////method syntax
+        //var result = datsource2.Intersect(datsource1).ToList();
+
+        ////Union
+        ////method syntax
+        var result = datsource2.Union(datsource1).ToList();
+        foreach (var data in result)
         {
-            Console.WriteLine(student.Name);
+            Console.WriteLine(data);
         }
-
-        Console.WriteLine("**********");
-
-        IList values = new ArrayList();
-        values.Add(0);
-        values.Add("data");
-        values.Add("numbers");
-        values.Add(2);
-
-        var stringresult = from s in values.OfType<string>()
-                           select s;
-
-        foreach(var res in stringresult.ToList())
-        {
-            Console.WriteLine(res);
-        }
-        Console.WriteLine("**********");
-        var stringint = from s in values.OfType<int>()
-                           select s;
-
-        foreach (var re in stringint.ToList())
-        {
-            Console.WriteLine(re);
-        }
-
-        Console.WriteLine("**********");
-        List<string> words = new List<string>() { "data", "result", "recharge" };
-        var result =  words.SelectMany(s => s);
-        foreach(var v in result)
-        {
-            Console.WriteLine(v);
-        }
+        Console.ReadKey();
 
     }
 
