@@ -6,128 +6,68 @@ using System.Security.Cryptography;
 
 public class Program
 {
-    //Joining
-    //Convertion method
     //Element operators
-    //Aggregate 
     //quantifiers
-
-    //Join
-    //=> inner join ---- outer join
-    //=> left join ------ left outer join
-    //=> right join ----- right outer join
-    //=> full join
+    //Task
 
 
     //Ordering 
     private static void Main(string[] args) //method or behaviour or logic or function
     {
+        //Quantifier
+        string[] words = { "lawyer", "doctor", "Engineer", "Tailor", "Artist" };
 
-        ////innerjoin
-        ////query syntax
+        //Any
+        //All
+        //Contain
 
-        //var employee = from s in Employee.GetAllEmployees()
-        //               join c in Department.GetAllDepartments()
-        //               on s.DepartmentId equals c.Id
-        //               select new 
-        //               { 
-        //                   StaffId = s.Id, 
-        //                   StaffName = s.Name,
-        //                   DepartmentName = c.Name
-        //               };
+        var result = words.All(num => num.Length > 6);
+        Console.WriteLine(result);
 
-        ////method syntax
-        //var emp = Employee.GetAllEmployees()
-        //           .Join(Department.GetAllDepartments(),
-        //           s => s.DepartmentId,
-        //           c => c.Id,
-        //           (s, c) => new 
-        //           {
-        //               StaffId = s.Id,
-        //               StaffName = s.Name,
-        //               DepartmentName = c.Name
-        //           });
+        var results = words.Any(num => num.Length > 6);
+        Console.WriteLine(results);
+
+        var resultes = words.Contains("Engineer");
+        Console.WriteLine(resultes);
+
+        ////Elementatordefault
+        ////Elementat
+        // List<int> numbers = new List<int>() { 2, 4, 6, 8, 10, 12, 14 };
+        //List<int> number = new List<int>() {  };
+
+        //var methodsyntax = numbers.ElementAt(2);
+        //var methodsyntaxs = numbers.ElementAtOrDefault(7);
+        //Console.WriteLine(methodsyntaxs);
+
+        ////first 
+        ////firstordefault
+        //var firstsyntax = numbers.First();
+        //var firstsyntaxs = number.FirstOrDefault();
+        //Console.WriteLine(firstsyntaxs);
 
 
-        //foreach (var item in emp)
+        ////last 
+        ////lastordefault
+        //var lastsyntax = numbers.Last();
+        //var lastsyntaxs = number.LastOrDefault();
+        //Console.WriteLine(lastsyntaxs);
+
+        ////single 
+        ////singleordefault
+        //var singlesyntax = numbers.Single( num => num < 4);
+        //var singlesyntaxs = number.SingleOrDefault(num => num > 4);
+        //Console.WriteLine(singlesyntaxs);
+
+
+        ////defaultifempty 
+
+        //var defualtsyntax = numbers.DefaultIfEmpty();
+        //var defualtsyntaxs = number.DefaultIfEmpty();
+        //foreach ( var i in defualtsyntaxs)
         //{
-        //    Console.WriteLine("StaffId : {0} ----- staffName: {1} ----- deptName : {2}", item.StaffId,item.StaffName, item.DepartmentName);
+        //    Console.WriteLine(i);
         //}
 
-        ////Group Join
-        ////query syntax
-        //var groupdata = from c in Department.GetAllDepartments()
-        //                join s in Employee.GetAllEmployees()
-        //                on c.Id equals s.DepartmentId into groupinfo
-        //                select new 
-        //                {
-        //                    DepartmentName = c.Name,
-        //                    staffs = groupinfo
-        //                };
-
-        ////method syntax
-        //var groupinfos = Department.GetAllDepartments()
-        //                .GroupJoin(Employee.GetAllEmployees(),
-        //                c => c.Id,
-        //                s => s.DepartmentId,
-        //                (cl, groupda) => new 
-        //                {
-        //                    DepartmentName = cl.Name,
-        //                    staffs = groupda
-        //                });
-
-
-        //foreach (var std in groupdata)
-        //{
-        //    Console.WriteLine($"---------{std.DepartmentName}, -------{std.staffs.Count()}");
-        //    foreach(var std2 in std.staffs)
-        //    {
-        //        Console.WriteLine("Employee: {0} ---- DeptId: {1}", std2.Name, std2.DepartmentId);
-        //    }
-        //}
-
-
-        ////LeftJoin
-        //var employee = from s in Employee.GetAllEmployees() //left
-        //              join c in Department.GetAllDepartments() //right
-        //              on s.DepartmentId equals c.Id into groupdata
-        //              from gc in groupdata.DefaultIfEmpty()
-        //              select new
-        //              {
-        //                  StaffName = s.Name,
-        //                  DepartmentName = gc == null ? "N/A" : gc.Name,
-        //              };
-
-        ////method syntax
-        //var empdata = Employee.GetAllEmployees()
-        //           .GroupJoin(Department.GetAllDepartments(),
-        //           s => s.DepartmentId,
-        //           c => c.Id,
-        //           (sls, cls) => new { sls, cls }).SelectMany
-        //           (x => x.cls.DefaultIfEmpty(),
-        //           (st, cl) => new 
-        //           {
-        //               StaffName = st.sls.Name,
-        //               DepartmentName = cl == null ? "N/A" : cl.Name,
-        //           });
-
-        //foreach (var item in empdata)
-        //{
-        //    Console.WriteLine("staffName: {0} ----- deptName : {1}", item.StaffName, item.DepartmentName);
-        //}
-
-
-        var info = Employee.GetAllEmployees();
-        var result =  info.Min( x  => x.Id );
-        Console.WriteLine( "Minvalue : {0}",result );
-        var result2 = info.Max( x => x.Id );
-        Console.WriteLine("MaxValue : {0}",result2 );
-        var result3 = info.Sum( x => x.Id );
-        Console.WriteLine("sumValue : {0}", result3);
-        var result4 = info.Count();
-        Console.WriteLine("countValue : {0}", result4);
-        var result5 = info.Average(x => x.DepartmentId);
-        Console.WriteLine("averageValue : {0}", result5);
     }
 
 
