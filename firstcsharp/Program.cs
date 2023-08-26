@@ -1,4 +1,5 @@
 ﻿using firstcsharp.Topics;
+using System;
 using System.Collections;
 using System.Net.WebSockets;
 using System.Security.Cryptography;
@@ -6,9 +7,10 @@ using System.Security.Cryptography;
 public class Program
 {
     //Joining
-    //Grouping
-    //Ordering
-    //Set Operation
+    //Convertion method
+    //Element operators
+    //Aggregate 
+    //quantifiers
 
     //Join
     //=> inner join ---- outer join
@@ -21,75 +23,111 @@ public class Program
     private static void Main(string[] args) //method or behaviour or logic or function
     {
 
-        //Ordering
-        //orderby
-        //orderbydescending
-        //thenby
-        ////ThenByDescending
-        //var emp = Employee.GetAllEmployees()
-        //           .OrderByDescending(x => x.ID)
-        //           .ThenByDescending(x => x.Name)
-        //           .ToList();
-
-        //foreach(var data in emp)
-        //{
-        //    Console.WriteLine("Name:---" + data.Name + ": Id:-----" + data.ID);
-        //}
-
-        //Grouping
-
-        ////GroupBy
+        ////innerjoin
         ////query syntax
-        //var info = (from std in Employee.GetAllEmployees()
-        //            group std by std.DepartmentId);
+
+        //var employee = from s in Employee.GetAllEmployees()
+        //               join c in Department.GetAllDepartments()
+        //               on s.DepartmentId equals c.Id
+        //               select new 
+        //               { 
+        //                   StaffId = s.Id, 
+        //                   StaffName = s.Name,
+        //                   DepartmentName = c.Name
+        //               };
 
         ////method syntax
-        //var info2 = Employee.GetAllEmployees().GroupBy(x => x.DepartmentId);
+        //var emp = Employee.GetAllEmployees()
+        //           .Join(Department.GetAllDepartments(),
+        //           s => s.DepartmentId,
+        //           c => c.Id,
+        //           (s, c) => new 
+        //           {
+        //               StaffId = s.Id,
+        //               StaffName = s.Name,
+        //               DepartmentName = c.Name
+        //           });
 
-        //foreach (var data in info)
+
+        //foreach (var item in emp)
         //{
-        //    Console.WriteLine(data.Key + ":" + data.Count());
-        //    foreach (var data2 in data)
+        //    Console.WriteLine("StaffId : {0} ----- staffName: {1} ----- deptName : {2}", item.StaffId,item.StaffName, item.DepartmentName);
+        //}
+
+        ////Group Join
+        ////query syntax
+        //var groupdata = from c in Department.GetAllDepartments()
+        //                join s in Employee.GetAllEmployees()
+        //                on c.Id equals s.DepartmentId into groupinfo
+        //                select new 
+        //                {
+        //                    DepartmentName = c.Name,
+        //                    staffs = groupinfo
+        //                };
+
+        ////method syntax
+        //var groupinfos = Department.GetAllDepartments()
+        //                .GroupJoin(Employee.GetAllEmployees(),
+        //                c => c.Id,
+        //                s => s.DepartmentId,
+        //                (cl, groupda) => new 
+        //                {
+        //                    DepartmentName = cl.Name,
+        //                    staffs = groupda
+        //                });
+
+
+        //foreach (var std in groupdata)
+        //{
+        //    Console.WriteLine($"---------{std.DepartmentName}, -------{std.staffs.Count()}");
+        //    foreach(var std2 in std.staffs)
         //    {
-        //        Console.WriteLine("Name :" + data2.Name);
+        //        Console.WriteLine("Employee: {0} ---- DeptId: {1}", std2.Name, std2.DepartmentId);
         //    }
         //}
-        //Console.ReadKey();
-
-        //set operator
-        //Distinct
-        //Except
-        //intersect
-        //union
-
-        var datsource1 = new List<int> { 1, 2, 4, 5, 7, 8, 9, 9, 10, 10 };
-        var datsource2 = new List<int> { 11, 45, 77, 10, 9, 12, 34, 0 };
 
 
-        ////Distinct
+        ////LeftJoin
+        //var employee = from s in Employee.GetAllEmployees() //left
+        //              join c in Department.GetAllDepartments() //right
+        //              on s.DepartmentId equals c.Id into groupdata
+        //              from gc in groupdata.DefaultIfEmpty()
+        //              select new
+        //              {
+        //                  StaffName = s.Name,
+        //                  DepartmentName = gc == null ? "N/A" : gc.Name,
+        //              };
+
         ////method syntax
-        //var result = datsource1.Distinct().ToList();
+        //var empdata = Employee.GetAllEmployees()
+        //           .GroupJoin(Department.GetAllDepartments(),
+        //           s => s.DepartmentId,
+        //           c => c.Id,
+        //           (sls, cls) => new { sls, cls }).SelectMany
+        //           (x => x.cls.DefaultIfEmpty(),
+        //           (st, cl) => new 
+        //           {
+        //               StaffName = st.sls.Name,
+        //               DepartmentName = cl == null ? "N/A" : cl.Name,
+        //           });
 
-        ////query syntax 
-        //var result2 = (from num in datsource1 select num).Distinct();
+        //foreach (var item in empdata)
+        //{
+        //    Console.WriteLine("staffName: {0} ----- deptName : {1}", item.StaffName, item.DepartmentName);
+        //}
 
-        ////Except
-        ////method syntax
-        //var result = datsource2.Except(datsource1).ToList();
 
-        ////Intersect
-        ////method syntax
-        //var result = datsource2.Intersect(datsource1).ToList();
-
-        ////Union
-        ////method syntax
-        var result = datsource2.Union(datsource1).ToList();
-        foreach (var data in result)
-        {
-            Console.WriteLine(data);
-        }
-        Console.ReadKey();
-
+        var info = Employee.GetAllEmployees();
+        var result =  info.Min( x  => x.Id );
+        Console.WriteLine( "Minvalue : {0}",result );
+        var result2 = info.Max( x => x.Id );
+        Console.WriteLine("MaxValue : {0}",result2 );
+        var result3 = info.Sum( x => x.Id );
+        Console.WriteLine("sumValue : {0}", result3);
+        var result4 = info.Count();
+        Console.WriteLine("countValue : {0}", result4);
+        var result5 = info.Average(x => x.DepartmentId);
+        Console.WriteLine("averageValue : {0}", result5);
     }
 
 
