@@ -14,21 +14,28 @@ public class Program
     //Ordering 
     private static void Main(string[] args) //method or behaviour or logic or function
     {
+
         //Quantifier
-        string[] words = { "lawyer", "doctor", "Engineer", "Tailor", "Artist" };
+        //string[] words = { "lawyer", "doctor", "Engineer", "Tailor", "Artist" };
 
-        //Any
-        //All
-        //Contain
+        ////Any
+        ////All
+        ////Contain
 
-        var result = words.All(num => num.Length > 6);
-        Console.WriteLine(result);
+        //var result = words.All(num => num.Length > 6);
+        //Console.WriteLine(result);
 
-        var results = words.Any(num => num.Length > 6);
-        Console.WriteLine(results);
+        //var results = words.Any(num => num.Length > 6);
+        //Console.WriteLine(results);
 
-        var resultes = words.Contains("Engineer");
-        Console.WriteLine(resultes);
+        //var resultes = words.Contains("Engineer");
+        //Console.WriteLine(resultes);
+
+        //single
+        //singleordefault
+        //var singlesyntax = numbers.Single(num => num < 4);
+        //var singlesyntaxs = number.SingleOrDefault(num => num > 4);
+        //Console.WriteLine(singlesyntaxs);
 
         ////Elementatordefault
         ////Elementat
