@@ -4,73 +4,49 @@ using System.Collections;
 using System.Net.WebSockets;
 using System.Security.Cryptography;
 
+public delegate void MyDelegate(string msg); 
 public class Program
 {
-
-  
-        //Thread
-        //Task
-        //Aysncronous function
-        //await
-        //async
-        //task
+   // public event MyDelegate Notify;  //event
     private static void Main(string[] args) //method or behaviour or logic or function
     {
-        InfoMethod();
-        Console.Read();
+        //set target method
+        MyDelegate del = new MyDelegate(MethodA);
+
+        MyDelegate dels = MethodA;
+
+        //lambda expression
+         MyDelegate deles = (string msg) => Console.WriteLine(msg); // anonymous method
+        deles("hello people");
+
+        Func<int, int, int, int> add = Student.Sum;
+        var result = add(10, 78, 78);
+        Console.WriteLine(result);
+
+        Action<decimal> printresult = Print;
+        printresult(89087);
+
+        Predicate<string> isupper = CheckCharacter;
+        var resultcheck = isupper("h");
+        Console.WriteLine(resultcheck);
+
     }
 
-    //static async void result()
-    //{
-    //    Task.Run(() =>
-    //    {
-    //        Calculate1();
-    //    });
-    //    Task.Run(() =>
-    //    {
-    //        Calculate2();
-    //    });
-    //    Task.Run(() =>
-    //    {
-    //        Calculate3();
-    //    });
-    //    await Data();
-
-    //}
-
-    //static int Calculate1()
-    //{
-    //    Thread.Sleep(3000);
-    //    Console.WriteLine("calculating result 1");
-    //    return 100;
-    //}
-    //static int Calculate2()
-    //{
-    //    Console.WriteLine("calculating result 2");
-    //    return 200;
-    //}
-    //static int Calculate3()
-    //{
-    //    Console.WriteLine("calculating result 3");
-    //    return 300;
-    //}
-
-    //static async Task Data() //asyncronous methos
-    //{
-    //    Console.WriteLine("result");
-    //}
-
-    public async static void InfoMethod()
+    //target method
+    static void MethodA(string msg)
     {
-        Console.WriteLine("info method begins");
-        Wait();
-        Console.WriteLine("info method Ends.");
+        Console.WriteLine(msg);
     }
 
-    public async static Task Wait()
+
+    static void Print(decimal i)
     {
-      await Task.Delay(TimeSpan.FromSeconds(10));
-        Console.WriteLine("Time completed");
+        Console.WriteLine(i);
+    }
+
+    static bool CheckCharacter(string str)
+    {
+        return str.Equals(str.ToUpper());
     }
 
 

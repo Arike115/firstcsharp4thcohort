@@ -1,15 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace firstcsharp.Topics
 {
+ 
     public  class Student
     {
-        public int Id { get; set; } 
-        public string? Name { get; set; }
-        public int Age { get; set; }
+      
+        public static int Sum (int x, int y, int c)
+        {
+            return x + y + c;
+        }
     }
 }
